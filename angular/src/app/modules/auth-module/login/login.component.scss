@@ -1,0 +1,44 @@
+// :root {
+// }
+$brandColor: hsl(166, 67%, 51%);
+$background: rgb(247, 247, 247);
+$textDark: hsla(0, 0%, 0%, 0.66);
+$textLight: hsla(0, 0%, 0%, 0.33);
+
+.field:not(:last-child) {
+	margin-bottom: 1rem;
+}
+
+.register {
+	border-radius: 10px;
+}
+.right {
+	padding: 2rem;
+	background: white;
+	max-width: 400px;
+	margin: 0 auto;
+	@media screen and (max-width:480px) {
+		padding: 2rem 1rem;
+	}
+}
+.right .title {
+	font-weight: 800;
+}
+
+.right .description {
+	color: $textLight;
+	font-size: 1rem;
+}
+
+.right small {
+	color: $textLight;
+}
+
+input {
+	font-size: 1rem;
+}
+
+input:focus {
+	border-color: $brandColor !important;
+	box-shadow: 0 0 0 1px $brandColor !important;
+}

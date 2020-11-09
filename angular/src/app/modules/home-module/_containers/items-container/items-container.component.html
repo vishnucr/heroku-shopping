@@ -1,0 +1,32 @@
+<main>
+	<section class="section">
+		<header class="is-clearfix">
+			<h2>Items</h2>
+		</header>
+		<!-- Table -->
+		<main class="box">
+			<table class="table is-fullwidth">
+				<thead>
+					<tr>
+						<th><abbr title="Number">No</abbr></th>
+						<th><abbr title="Name">Name</abbr></th>
+						<th><abbr title="Category">Category</abbr></th>
+						<th><abbr title="Price">Price</abbr></th>
+						<th><abbr title="Varient">Varient</abbr></th>
+						<th><abbr title="Tags">Tags</abbr></th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr *ngFor="let item of items; let i = index" [attr.data-index]="i">
+						<td>{{ i + 1 }}</td>
+						<td>{{item.name}}</td>
+						<td>{{item.sub_category}}</td>
+						<td>{{item.price}}</td>
+						<td>{{item.varient}}</td>
+						<td>{{item.tags}}</td>
+					</tr>
+				</tbody>
+			</table>
+		</main>
+	</section>
+</main>

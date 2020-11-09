@@ -1,0 +1,4 @@
+<div *ngFor="let alert of alerts" class="toast show {{cssClass(alert)}}" >
+    <div class="img close" (click)="removeAlert(alert)">&times;</div>
+    <div class="desc" [innerHTML]="alert.message"></div>
+</div>

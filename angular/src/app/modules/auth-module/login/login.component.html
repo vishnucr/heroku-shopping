@@ -1,0 +1,39 @@
+<section class="section">
+	<div class="container">
+		<div class="columns is-multiline is-centered is-vcentered">
+			<div class="column register">
+				<div class="right has-text-centered">
+					<h1 class="title is-4">LOGIN</h1>
+					<p class="description">
+						Login with your username and password.
+					</p>
+					<form [formGroup]="loginForm" (ngSubmit)="login($event)">
+						<div class="field">
+							<div class="control">
+								<input formControlName="username" class="input is-medium" type="text" placeholder="Username" />
+							</div>
+						</div>
+
+						<div class="field">
+							<div class="control">
+								<input formControlName="password" class="input is-medium" type="password" placeholder="Password" />
+							</div>
+						</div>
+						<button type="submit" class="button is-block is-primary is-fullwidth is-medium" [disabled]="loginForm.invalid" >
+							Login
+						</button>
+						<br />
+						<small><em>Forgot Password</em></small>
+					</form>
+				</div>
+			</div>
+			<div class="column is-12">
+				<br />
+				<p class="has-text-centered">
+					<small>&copy; Shopping. All Rights Reserved.</small>
+				</p>
+			</div>
+		</div>
+
+	</div>
+</section>

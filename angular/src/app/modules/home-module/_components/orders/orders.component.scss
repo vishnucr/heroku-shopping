@@ -1,0 +1,89 @@
+.tabs {
+	a {
+		fa-icon {
+			padding: 0.8rem;
+		}
+	}
+}
+@import "../../../../../assets/variables";
+
+.item {
+	display: flex;
+	justify-content: space-between;
+
+	.left {
+		display: flex;
+		span {
+			margin-right: 1rem;
+			font-weight: bold;
+		}
+		section {
+			h3 {
+				margin: 0 0 0.5rem 0;
+			}
+			small {
+				fa-icon {
+					color: $font-darker-color;
+					margin: 0 0.3rem;
+					&:first-child {
+						margin-left: 0;
+					}
+					&:last-child {
+						margin-left: 1.2rem;
+					}
+				}
+			}
+		}
+	}
+	.right {
+		.items {
+			margin-bottom: 1rem;
+			ul.tags {
+				margin: 0;
+				display: flex;
+				justify-content: flex-end;
+				li {
+					list-style: none;
+					margin: 0 0.5rem;
+					padding: 0;
+					span {
+						margin: 0;
+					}
+					&:first-child {
+						margin-left: 0;
+					}
+					&:last-child {
+						margin-right: 0;
+					}
+				}
+			}
+		}
+		.info {
+			text-align: right;
+			p {
+				display: inline-block;
+				margin: 0;
+				font-size: 0.7rem;
+				font-weight: bold;
+				color: $font-darker-color;
+				&:first-child {
+					margin-right: 1rem;
+				}
+			}
+		}
+	}
+	@media screen and (max-width: 680px) {
+		flex-direction: column;
+		.right {
+			margin-top: 1rem;
+			.items {
+				ul.tags {
+					justify-content: flex-start;
+				}
+			}
+			.info {
+				text-align: left;
+			}
+		}
+	}
+}

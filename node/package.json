@@ -1,0 +1,42 @@
+{
+  "name": "project-tracker-node",
+  "version": "1.0.0",
+  "description": "node backend for project-tracker",
+  "main": "server.js",
+  "scripts": {
+    "start": "nodemon server.js --host 0.0.0.0",
+    "client": "cd ../react && npm start",
+    "concurrent": "concurrently \"npm run server && \"npm run client"
+  },
+  "keywords": [
+    "nodejs",
+    "graphql",
+    "express",
+    "teamwork"
+  ],
+  "author": "vishnucr",
+  "license": "MIT",
+  "dependencies": {
+    "atob": "^2.1.2",
+    "axios": "^0.19.2",
+    "bcrypt": "^5.0.0",
+    "btoa": "^1.2.1",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "express-graphql": "^0.9.0",
+    "graphql": "^14.7.0",
+    "jsonwebtoken": "^8.5.1",
+    "moment": "^2.27.0",
+    "mongodb": "^3.5.9",
+    "mongoose": "^5.9.22",
+    "node-localstorage": "^2.1.6"
+  },
+  "devDependencies": {
+    "@types/node": "^14.0.22",
+    "concurrently": "^5.2.0",
+    "nodemon": "^2.0.4",
+    "ts-node": "^8.10.2",
+    "typescript": "^3.9.6"
+  }
+}

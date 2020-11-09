@@ -1,0 +1,13 @@
+@import '../../../../../assets/variables';
+
+.main {
+    // margin-left: $sidebar-width;
+    position: relative;
+    padding-left: $padding;
+    padding-right: $padding;
+  }
+  .main {
+    margin-top: $header-height;
+    padding-top: $padding;
+  }
+  

@@ -1,0 +1,34 @@
+<main>
+	<section class="section">
+		<header class="is-clearfix">
+			<h2>Customers</h2>
+		</header>
+		<!-- Table -->
+		<main class="box">
+			<table class="table table is-fullwidth">
+				<thead>
+					<tr>
+						<th><abbr title="Number">No</abbr></th>
+						<th><abbr title="First Name">First Name</abbr></th>
+						<th><abbr title="Last Name">Last Name</abbr></th>
+						<th><abbr title="Username">Username</abbr></th>
+						<th><abbr title="Phone">Phone</abbr></th>
+						<th><abbr title="Email">Email</abbr></th>
+						<th><abbr title="Address">Address</abbr></th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr *ngFor="let user of users; let i = index" [attr.data-index]="i">
+						<td>{{ i + 1 }}</td>
+						<td>{{user.first_name}}</td>
+						<td>{{user.last_name}}</td>
+						<td>{{user.username}}</td>
+						<td>{{user.phone}}</td>
+						<td>{{user.email}}</td>
+						<td>{{user.address.line_1}}, {{user.address.line_2}},<br/>{{user.address.city}}, {{user.address.pin}} </td>
+					</tr>
+				</tbody>
+			</table>
+		</main>
+	</section>
+</main>

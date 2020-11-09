@@ -1,0 +1,269 @@
+<section class="section">
+  <header class="is-clearfix">
+    <h2 class="app-heading">New Order</h2>
+  </header>
+  <main>
+    <nav class="panel has-background-white-bis">
+      <p class="panel-heading">
+        <span>Order Details</span>
+        <span class="buttons">
+          <span
+            class="has-icons-left button is-small is-rounded is-warning"
+            (click)="cancel()"
+          >
+            <span class="icon">
+              <fa-icon [icon]="faTimes"></fa-icon>
+            </span>
+            <span class="has-text-weight-light">Cancel</span>
+          </span>
+          <span
+            class="has-icons-left button is-small is-rounded is-primary"
+            (click)="save()"
+          >
+            <span class="icon">
+              <fa-icon [icon]="faSave"></fa-icon>
+            </span>
+            <span class="has-text-weight-light">Create</span>
+          </span>
+        </span>
+      </p>
+
+      <div class="section profile-heading">
+        <div class="columns is-mobile is-multiline">
+          <!-- USER DETAILS -->
+          <div class="column is-4-tablet is-10-mobile name">
+            <section>
+              <form [formGroup]="orderForm">
+                <div class="field flex-grow-1">
+                  <div class="control is-expanded">
+                    <div class="select is-fullwidth">
+                      <select
+                        formControlName="user"
+                        (change)="selectUser($event)"
+                      >
+                        <option value="">-Select user-</option>
+                        <option *ngFor="let user of users" [value]="user._id">
+                          {{ user.first_name | uppercase }}
+                          {{ user.last_name | uppercase }}
+                        </option>
+                      </select>
+                    </div>
+                  </div>
+                  <small class="subtitle is-size-7 has-text-info"
+                    >*The Address will be autofilled from user</small
+                  >
+                </div>
+                <div formGroupName="address">
+                  <div class="field">
+                    <label class="label">Delivery Date</label>
+                    <div class="control date">
+                      <input
+                        class="input"
+                        formControlName="delivery_date"
+                        readonly
+                        matInput
+                        [matDatepicker]="picker"
+                      />
+                      <mat-datepicker-toggle
+                        matSuffix
+                        [for]="picker"
+                        class="date-toggle"
+                      >
+                      </mat-datepicker-toggle>
+                      <mat-datepicker #picker></mat-datepicker>
+                    </div>
+                  </div>
+                  <div class="field">
+                    <label class="label">Line 1</label>
+                    <div class="control">
+                      <input
+                        formControlName="line_1"
+                        class="input"
+                        type="text"
+                        placeholder="Text input"
+                      />
+                    </div>
+                  </div>
+                  <div class="field">
+                    <label class="label">Line 2</label>
+                    <div class="control">
+                      <input
+                        formControlName="line_2"
+                        class="input"
+                        type="text"
+                        placeholder="Text input"
+                      />
+                    </div>
+                  </div>
+                  <div class="field">
+                    <label class="label">City</label>
+                    <div class="control">
+                      <input
+                        formControlName="city"
+                        class="input"
+                        type="text"
+                        placeholder="Text input"
+                      />
+                    </div>
+                  </div>
+                  <div class="field">
+                    <label class="label">State</label>
+                    <div class="control">
+                      <input
+                        formControlName="state"
+                        class="input"
+                        type="text"
+                        placeholder="Text input"
+                      />
+                    </div>
+                  </div>
+                  <div class="field mb-3">
+                    <label class="label">Phone</label>
+                    <div class="control">
+                      <input
+                        formControlName="phone"
+                        class="input"
+                        type="text"
+                        placeholder="Text input"
+                      />
+                    </div>
+                  </div>
+                  <div class="field mb-3">
+                    <label class="label">Pin</label>
+                    <div class="control">
+                      <input
+                        formControlName="pin"
+                        class="input"
+                        type="text"
+                        placeholder="Text input"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div class="field">
+                  <p class="label">Is Completed ?</p>
+                  <div class="control">
+                    <label class="radio">
+                      <input
+                        type="radio"
+                        formControlName="is_completed"
+                        [value]="true"
+                      />
+                      Yes
+                    </label>
+                    <label class="radio">
+                      <input
+                        type="radio"
+                        formControlName="is_completed"
+                        [value]="false"
+                      />
+                      No
+                    </label>
+                  </div>
+                </div>
+                <div class="field">
+                  <p class="label">Is Canceled ?</p>
+                  <div class="control">
+                    <label class="radio">
+                      <input
+                        type="radio"
+                        formControlName="is_canceled"
+                        [value]="true"
+                      />
+                      Yes
+                    </label>
+                    <label class="radio">
+                      <input
+                        type="radio"
+                        formControlName="is_canceled"
+                        [value]="false"
+                      />
+                      No
+                    </label>
+                  </div>
+                </div>
+              </form>
+            </section>
+          </div>
+          <!-- ITEM LIST -->
+          <div class="column">
+            <nav class="panel">
+              <!-- Select -->
+              <form [formGroup]="itemForm">
+                <div class="panel-block">
+                  <h4 class="title is-size-6 is-marginless">ITEMS</h4>
+                </div>
+                <div class="panel-block">
+                  <div class="field has-addons flex-grow-1">
+                    <div class="control is-expanded">
+                      <div class="select is-fullwidth">
+                        <select formControlName="selected" #selected_item>
+                          <option value="">-Select Item-</option>
+                          <option *ngFor="let item of items" [ngValue]="item">
+                            {{ item.name }}
+                          </option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="control">
+                      <button
+                        (click)="addItem()"
+                        class="button is-primary"
+                        [disabled]="!selected_item.value"
+                      >
+                        Add
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </form>
+              <!-- List -->
+              <div
+                class="panel-block item-listing"
+                *ngFor="let item of addedItems; let i = index"
+              >
+                <div class="media w-full">
+                  <div class="media-left">
+                    <figure class="image is-48x48">
+                      <img
+                        src="https://bulma.io/images/placeholders/96x96.png"
+                        alt="Placeholder image"
+                      />
+                    </figure>
+                  </div>
+                  <div class="media-content">
+                    <div class="content">
+                      <p class="title is-6">{{ item.name | uppercase }}</p>
+                      <p class="subtitle is-7">
+                        <small>{{ item.sub_category }}</small>
+                        <small *ngIf="item.variant"
+                          >( {{ item.variant }} )</small
+                        >
+                      </p>
+                    </div>
+                  </div>
+                  <div class="field app-quantity">
+                    <small class="mr-3">Quantity</small>
+                    <div class="control mr-3">
+                      <input
+                        class="input"
+                        type="number"
+                        min="1"
+                        max="10"
+                        [(ngModel)]="item.quantity"
+                      />
+                    </div>
+                    <small>{{ item.measurement }}</small>
+                    <span class="icon is-small px-5" (click)="removeItem(i)">
+                      <fa-icon [icon]="faTimes" class="close-button"></fa-icon>
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </main>
+</section>

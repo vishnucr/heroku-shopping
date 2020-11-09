@@ -1,0 +1,30 @@
+$font-color: #ffffff;
+$font-dark-color: #949ba2;
+$font-darker-color: #5b646d;
+$highlight-color: #ffa500;
+$main-color: #2e323b;
+
+$background-light: #f7f7f7;
+
+$box-shadow-1: 0 0.5em 1em -0.125em rgba(10, 10, 10, 0.1), 0 0px 0 1px rgba(10, 10, 10, 0.02);
+
+$light-color: lighten($main-color, 3%);
+$dark-color: darken($main-color, 3%);
+$lighter-color: lighten($main-color, 6%);
+$darker-color: darken($main-color, 6%);
+
+$gradient-color-start: $light-color;
+$gradient-color-end: $dark-color;
+
+$sidebar-width: 13rem;
+$header-height: 3.25rem;
+$padding: 2rem;
+
+$size-1:1rem;
+$size-1_5:1.5rem;
+$size-2:2rem;
+$size-3:3rem;
+$size-4:4rem;
+$size-6:6rem;
+$size-8:8rem;
+$size-10:10rem;

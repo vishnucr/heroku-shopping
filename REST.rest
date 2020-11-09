@@ -1,0 +1,64 @@
+POST http://127.0.0.1:4000/api/user HTTP/1.1
+Host: localhost:4000
+Content-Type: application/json
+authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InZpc2hudWNyIiwiaWF0IjoxNTk3OTUxNzA0LCJleHAiOjE1OTc5NTIwMDR9.184P5bgncJUszvG8YpvqpU5n959eI1Qlve9JkLzFr6w
+
+{
+    "first_name":"sathyabamakp",
+    "last_name":"c ravindran",
+    "sex":"male",
+    "age": "29",
+    "email":"sathyabamakp@gmail.com",
+    "username": "sathyabamakp",
+    "phone":"12345",
+    "address":{
+        "line_1": "cheriappath house",
+        "line_2": "sha road",
+        "city": "chalakduy",
+        "state": "kerala",
+        "pin": "1234"
+    }
+}
+
+###
+
+POST http://127.0.0.1:4000/api/order HTTP/1.1
+Host: localhost:4000
+Content-Type: application/json
+authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InZpc2hudWNyIiwiaWF0IjoxNTk3OTUxNzA0LCJleHAiOjE1OTc5NTIwMDR9.184P5bgncJUszvG8YpvqpU5n959eI1Qlve9JkLzFr6w
+
+{
+    "items":"5f0c9469f833e23a0028bd30,5f0c94aef833e23a0028bd34",
+    "user":"5f06060110b7881ac0244005",
+    "address":{
+        "line_1": "cheriappath house",
+        "line_2": "sha road",
+        "city": "chalakduy",
+        "state": "kerala",
+        "pin": "1234"
+    },
+    "is_completed": true,
+    "is_canceled": false
+}
+
+###
+
+POST http://127.0.0.1:4000/api/register HTTP/1.1
+Host: localhost:4000
+Content-Type: application/json
+
+{
+    "username":"mirandatb",
+    "password":"password"
+}
+
+###
+
+GET http://127.0.0.1:4000/api/login HTTP/1.1
+Host: localhost:4000
+Content-Type: application/json
+
+{
+    "username":"mirandatb",
+    "password":"password"
+}
