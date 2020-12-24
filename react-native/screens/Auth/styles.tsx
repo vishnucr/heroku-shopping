@@ -42,5 +42,14 @@ export default StyleSheet.create({
     marginTop: 26,
     justifyContent: "center",
     backgroundColor: button
+  },
+  signInButtonLabel: {
+    color: white,
+    fontSize: 18,
+    fontFamily: "Roboto_medium"
+  },
+  or: {
+    alignSelf: "center",
+    marginTop: 24
   }
 });

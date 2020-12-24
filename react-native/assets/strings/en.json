@@ -3,6 +3,7 @@
     "signIn": "Sign In",
     "enterCred": "Enter your credentials to continue",
     "username": "Username",
-    "password": "Password"
+    "password": "Password",
+    "orSocial": "Or"
   }
 }
