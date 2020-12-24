@@ -4,13 +4,16 @@ import { button, white, textColor } from "constants/Colors";
 export default StyleSheet.create({
   container: {
     backgroundColor: white,
-    flex: 1,
-    paddingHorizontal: 16
+    flex: 1
+  },
+  form: {
+    paddingHorizontal: 16,
+    paddingTop: 50
   },
   top: {
-    minHeight: 100
+    minHeight: 150
   },
-  signUp: {
+  signIn: {
     fontSize: 26,
     color: textColor,
     fontWeight: "600"
@@ -39,17 +42,28 @@ export default StyleSheet.create({
   signInButton: {
     width: "100%",
     alignSelf: "center",
-    marginTop: 26,
+    marginTop: 46,
     justifyContent: "center",
-    backgroundColor: button
+    backgroundColor: button,
+    minHeight: 50
   },
   signInButtonLabel: {
     color: white,
     fontSize: 18,
     fontFamily: "Roboto_medium"
   },
-  or: {
-    alignSelf: "center",
-    marginTop: 24
+  signUpTitle: {
+    color: "#8c8c8c"
+  },
+  row: {
+    alignItems: "center",
+    justifyContent: "center"
+  },
+  signUp: {
+    marginLeft: 5
+  },
+  signUpButtonLabel: {
+    color: button,
+    fontFamily: "Roboto_medium"
   }
 });

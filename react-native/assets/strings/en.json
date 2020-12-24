@@ -4,6 +4,10 @@
     "enterCred": "Enter your credentials to continue",
     "username": "Username",
     "password": "Password",
-    "orSocial": "Or"
+    "email": "Email address",
+    "signUpTitle": "Don't have an account?",
+    "signUp": "Click To Register",
+    "signUpHeader": "Sign Up",
+    "signInTitle":"Already have an account?"
   }
 }

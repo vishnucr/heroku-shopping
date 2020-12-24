@@ -18,12 +18,14 @@ import {
   Row
 } from "native-base";
 
-export default function Login({ navigation }) {
+export default function Register({navigation}) {
   return (
     <Container style={styles.container}>
       <Content>
         <View style={styles.form}>
-          <StyledText style={styles.signIn}>{string("auth.signIn")}</StyledText>
+          <StyledText style={styles.signIn}>
+            {string("auth.signUpHeader")}
+          </StyledText>
           <StyledText style={styles.enterCred}>
             {string("auth.enterCred")}
           </StyledText>
@@ -32,6 +34,14 @@ export default function Login({ navigation }) {
               <Item style={styles.input}>
                 <Input
                   placeholder={string("auth.username")}
+                  style={CommonStyle.input}
+                  autoCapitalize={"none"}
+                  autoCorrect={false}
+                />
+              </Item>
+              <Item style={styles.input}>
+                <Input
+                  placeholder={string("auth.email")}
                   style={CommonStyle.input}
                   autoCapitalize={"none"}
                   autoCorrect={false}
@@ -52,16 +62,16 @@ export default function Login({ navigation }) {
               <Col>
                 <Row style={styles.row}>
                   <StyledText style={styles.signUpTitle}>
-                    {string("auth.signUpTitle")}
+                    {string("auth.signInTitle")}
                   </StyledText>
                   <Button
                     transparent
                     style={styles.signUp}
                     onPress={() => {
-                      navigation.navigate("Register");
+                      navigation.goBack();
                     }}>
                     <StyledText style={styles.signUpButtonLabel}>
-                      {string("auth.signUp")}
+                      {string("auth.signIn")}
                     </StyledText>
                   </Button>
                 </Row>
