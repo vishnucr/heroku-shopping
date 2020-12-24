@@ -233,26 +233,28 @@
               >
                 <div class="media w-full">
                   <div class="media-left">
-                    <figure class="image is-48x48">
+                    <figure class="image is-64x64">
                       <img
-                        src="https://bulma.io/images/placeholders/96x96.png"
+                        class="object-fit"
+                        [src]="env.assetsUrl + '/' + item.images[0]" 
                         alt="Placeholder image"
                       />
                     </figure>
                   </div>
                   <div class="media-content">
                     <div class="content">
-                      <p class="title is-6">{{ item.name | uppercase }}</p>
-                      <p class="subtitle is-7">
-                        <small>{{ item.sub_category }}</small>
-                        <small *ngIf="item.variant"
-                          >( {{ item.variant }} )</small
-                        >
-                      </p>
+                      <p class="title is-6 mb-5">{{ item.name | uppercase }}</p>
+                      <div class="subtitle is-7">
+                        <p class="mb-1">
+                          <small>{{ item.category | category  }}</small> - 
+                          <small>{{ item.sub_category | sub_category: item.category  }}</small>
+                        </p>
+                        <p>{{item.description}}</p>
+                      </div>
                     </div>
                   </div>
                   <div class="media-right" *ngIf="!isEditMode">
-                    <small>{{ item.quantity }} {{ item.measurement }}</small>
+                    <small>{{ item.quantity }} {{ item.measurement | measurement }}</small>
                   </div>
                   <div class="field app-quantity" *ngIf="isEditMode">
                     <small class="mr-3">Quantity</small>
@@ -260,12 +262,10 @@
                       <input
                         class="input"
                         type="number"
-                        min="1"
-                        max="10"
                         [(ngModel)]="item.quantity"
                       />
                     </div>
-                    <small>{{ item.measurement }}</small>
+                    <small>{{ item.measurement | measurement }}</small>
                     <span class="icon is-small px-5" (click)="removeItem(i)">
                       <fa-icon [icon]="faTimes" class="close-button"></fa-icon>
                     </span>

@@ -8,13 +8,13 @@
 			<table class="table table is-fullwidth">
 				<thead>
 					<tr>
-						<th><abbr title="Number">No</abbr></th>
-						<th><abbr title="First Name">First Name</abbr></th>
-						<th><abbr title="Last Name">Last Name</abbr></th>
-						<th><abbr title="Username">Username</abbr></th>
-						<th><abbr title="Phone">Phone</abbr></th>
-						<th><abbr title="Email">Email</abbr></th>
-						<th><abbr title="Address">Address</abbr></th>
+						<th>No</th>
+						<th>First Name</th>
+						<th>Last Name</th>
+						<th>Username</th>
+						<th>Phone</th>
+						<th>Email</th>
+						<th>Address</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -25,7 +25,17 @@
 						<td>{{user.username}}</td>
 						<td>{{user.phone}}</td>
 						<td>{{user.email}}</td>
-						<td>{{user.address.line_1}}, {{user.address.line_2}},<br/>{{user.address.city}}, {{user.address.pin}} </td>
+						<td>{{user.address?.line_1}}, {{user.address?.line_2}},<br/>{{user.address?.city}}, {{user.address?.pin}} </td>
+						<td>
+							<span
+							  class="has-icons-left button is-small is-rounded is-info"
+							  (click)="edit(user)"
+							>
+							  <span class="icon">
+								<fa-icon [icon]="faPencilAlt"></fa-icon>
+							  </span>
+							</span>
+						  </td>
 					</tr>
 				</tbody>
 			</table>

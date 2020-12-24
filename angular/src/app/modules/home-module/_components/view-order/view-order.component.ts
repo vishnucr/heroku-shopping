@@ -10,6 +10,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { HttpService } from "@app/_services/http.service";
 import { Item } from "@app/_models/item.model";
+import env from "@app/_config/envirponment.dev";
 
 @Component({
   selector: "app-view-order",
@@ -31,6 +32,8 @@ export class ViewOrderComponent implements OnInit {
   public addedItems: Item[] = [];
   public selectedItem: Item;
   private _ORDER_LIMIT = 10;
+
+  public env = env;
 
   constructor(
     private _http: HttpService,

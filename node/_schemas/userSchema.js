@@ -10,6 +10,7 @@ const userSchema = new Schema({
 	_id: Schema.Types.ObjectId,
 	first_name: { type: String, default: '' },
 	last_name: { type: String, default: '' },
+	image: { type: String, default: '' },
 	sex: { type: String, default: '' },
 	username: { type: String, default: '' },
 	age: { type: String, default: '' },

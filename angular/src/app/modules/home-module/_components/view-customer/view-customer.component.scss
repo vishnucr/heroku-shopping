@@ -1,0 +1,16 @@
+.panel {
+    .panel-heading {
+        display: flex;
+        justify-content: space-between;
+        .back-icon {
+            font-size: 1rem;
+        }
+    }
+    .panel-block.item-listing {
+        justify-content: space-between !important;
+        .app-quantity{
+            display: flex;
+            align-items: center;
+        }
+    }
+}

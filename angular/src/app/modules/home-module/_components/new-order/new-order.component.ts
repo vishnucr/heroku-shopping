@@ -13,6 +13,7 @@ import { Item } from "@app/_models/item.model";
 import { User } from "@app/_models/user.model";
 import { Order } from "@app/_models/order.model";
 import { OrderService } from "@app/_store/store";
+import env from "@app/_config/envirponment.dev";
 
 @Component({
   selector: "app-new-order",
@@ -33,6 +34,7 @@ export class NewOrderComponent implements OnInit {
   public addedItems: Item[] = [];
   public selectedItem: Item;
   private _ORDER_LIMIT = 10;
+  public env = env;
 
   constructor(
     private _http: HttpService,

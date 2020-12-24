@@ -6,6 +6,9 @@ const bodyParser = require('body-parser');
 const routes = require('./_routes/routes');
 const exp = express();
 const mongoose = require('mongoose');
+const multer = require('multer');
+const path = require('path');
+
 mongoose.set('useFindAndModify', false);
 //Set up default mongoose connection
 const mongoDB = `mongodb://127.0.0.1/${process.env.DB_NAME}`;
@@ -14,8 +17,22 @@ mongoose.connect(mongoDB, { useNewUrlParser: true, useUnifiedTopology: true, });
 //Get the default connection
 const db = mongoose.connection;
 
+// Multer Config - File Upload and Storage Utility
+const storageConfig = multer.diskStorage({
+    destination: function(req, file, cb) {
+        //cb(error, destination)  
+        cb(null, 'uploads/');
+    },
+    // By default, multer removes file extensions so let's add them back
+    filename: function(req, file, cb) {
+        cb(null, file.originalname + '-' + Date.now() + '.' + path.extname(file.originalname));
+    }
+});
+
+const storage = multer({storage:storageConfig})
 // needs to be before router
 exp.use(cors());
+exp.use('/uploads',express.static('uploads')) // making _uploads directory public eg localhost:4000/uploads/image.png
 exp.use(bodyParser.json());
 exp.use(bodyParser.urlencoded({ extended: true }));
 
@@ -44,4 +61,4 @@ db.on('connected', () => {
     console.log('DB Connected');
     exp.listen(process.env.PORT, ()=> console.log(`serving on port ${process.env.PORT}`))
 })
-routes(router,db);
+routes(router,db, storage);

@@ -2,9 +2,7 @@ import { Component, OnInit, OnDestroy } from "@angular/core";
 import { Subscription } from "rxjs";
 // import { HttpService } from "@app/_services/http.service";
 import { Order } from "@app/_models/order.model";
-import { Item } from "@app/_models/item.model";
-import { User } from "@app/_models/user.model";
-import { OrderService, ItemService, UserService } from "@app/_store/store";
+import { OrderService } from "@app/_store/store";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
 
 @Component({
@@ -16,58 +14,28 @@ export class OrdersContainerComponent implements OnInit, OnDestroy {
   constructor(
     // private _http: HttpService,
     private _orderStore: OrderService,
-    private _itemStore: ItemService,
-    private _userStore: UserService
   ) {}
 
   private _orderStoreSubscription: Subscription;
-  private _itemStoreSubscription: Subscription;
-  private _userStoreSubscription: Subscription;
-  public items: Item[] = [];
   public orders: Order[] = [];
   public pending_orders: Order[] = [];
   public completed_orders: Order[] = [];
   public new_orders: Order[] = [];
   public canceled_orders: Order[] = [];
-  public users: User[] = [];
   public currentOrder: Order;
   public tab = "new"; // for orders list component
   public faPlus = faPlus;
 
   ngOnInit(): void {
     // Getting data from store
-    this._getUsers();
-    this._getItems();
     this._getOrders();
   }
 
   ngOnDestroy() {
     this._orderStoreSubscription.unsubscribe();
-    this._itemStoreSubscription.unsubscribe();
-    this._userStoreSubscription.unsubscribe();
   }
 
-  _getUsers() {
-    this._userStoreSubscription = this._userStore.stateChanged.subscribe(
-      (state) => {
-        if (state) {
-          this.users = state.users;
-        }
-      }
-    );
-  }
-
-  _getItems() {
-    this._itemStoreSubscription = this._itemStore.stateChanged.subscribe(
-      (state) => {
-        if (state) {
-          this.items = state.items;
-        }
-      }
-    );
-  }
-
-  _getOrders() {
+  private _getOrders() {
     this._orderStoreSubscription = this._orderStore.stateChanged.subscribe(
       (state) => {
         if (state) {

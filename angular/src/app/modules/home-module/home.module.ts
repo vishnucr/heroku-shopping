@@ -5,8 +5,8 @@ import { HomeComponent } from "./home.component";
 import { HttpClientModule } from "@angular/common/http";
 import { FontAwesomeModule } from "@fortawesome/angular-fontawesome";
 import { ReactiveFormsModule, FormsModule } from "@angular/forms";
-import { MatNativeDateModule } from '@angular/material/core';
-import { MatDatepickerModule,  } from "@angular/material/datepicker";
+import { MatNativeDateModule } from "@angular/material/core";
+import { MatDatepickerModule } from "@angular/material/datepicker";
 
 import { httpInterceptProviders } from "src/app/_interceptors";
 import { HttpService } from "@app/_services/http.service";
@@ -20,6 +20,12 @@ import { ItemsContainerComponent } from "./_containers/items-container/items-con
 import { NewOrderComponent } from "./_components/new-order/new-order.component";
 import { ViewOrderComponent } from "./_components/view-order/view-order.component";
 import { OrderListItemComponent } from "./_components/order-list-item/order-list-item.component";
+import { ViewItemComponent } from "./_components/view-item/view-item.component";
+import { NewItemComponent } from "./_components/new-item/new-item.component";
+import { CategoryPipe } from "@app/_helpers/category.pipe";
+import { SubCategoryPipe } from "@app/_helpers/sub-category.pipe";
+import { MeasurementPipe } from "@app/_helpers/measurement.pipe";
+import { ViewCustomerComponent } from './_components/view-customer/view-customer.component';
 
 const routes: Routes = [
   {
@@ -32,9 +38,12 @@ const routes: Routes = [
       { path: "orders/new", component: NewOrderComponent },
       { path: "orders/view/:id", component: ViewOrderComponent },
       { path: "items", component: ItemsContainerComponent },
-      { path: "customers", component: CustomerContainerComponent }
-    ]
-  }
+      { path: "items/new", component: NewItemComponent },
+      { path: "items/view/:id", component: ViewItemComponent },
+      { path: "customers", component: CustomerContainerComponent },
+      { path: "customers/view/:id", component: ViewCustomerComponent },
+    ],
+  },
 ];
 
 @NgModule({
@@ -48,7 +57,13 @@ const routes: Routes = [
     ItemsContainerComponent,
     NewOrderComponent,
     ViewOrderComponent,
-    OrderListItemComponent
+    OrderListItemComponent,
+    ViewItemComponent,
+    NewItemComponent,
+    CategoryPipe,
+    SubCategoryPipe,
+    MeasurementPipe,
+    ViewCustomerComponent,
   ],
   imports: [
     CommonModule,
@@ -58,7 +73,7 @@ const routes: Routes = [
     FormsModule,
     MatNativeDateModule,
     MatDatepickerModule,
-    RouterModule.forChild(routes)
+    RouterModule.forChild(routes),
   ],
   providers: [
     httpInterceptProviders,
@@ -66,7 +81,7 @@ const routes: Routes = [
     OrderService,
     ItemService,
     UserService,
-    HttpService
-  ]
+    HttpService,
+  ],
 })
 export class HomeModule {}

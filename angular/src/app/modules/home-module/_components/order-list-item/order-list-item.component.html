@@ -18,7 +18,7 @@
           <span class="tag is-dark">ITEMS {{ order.items.length }} Nos</span>
         </li>
         <li *ngFor="let item of order.items">
-          <span class="tag is-info">{{ item.name }} {{item.quantity}} {{item.measurement}}</span>
+          <span class="tag is-info">{{ item.name }} {{item.quantity}} {{item.measurement | measurement}}</span>
         </li>
       </ul>
     </section>
