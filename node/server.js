@@ -12,7 +12,8 @@ const path = require('path');
 mongoose.set('useFindAndModify', false);
 //Set up default mongoose connection
 const mongoDB = `mongodb://127.0.0.1/${process.env.DB_NAME}`;
-mongoose.connect(mongoDB, { useNewUrlParser: true, useUnifiedTopology: true, });
+const DB_URL =  process.env.DB_URL;
+mongoose.connect(DB_URL, { useNewUrlParser: true, useUnifiedTopology: true, });
 
 //Get the default connection
 const db = mongoose.connection;
