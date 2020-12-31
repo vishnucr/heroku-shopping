@@ -4,7 +4,7 @@
   "description": "node backend for project-tracker",
   "main": "server.js",
   "scripts": {
-    "start": "nodemon server.js --host 0.0.0.0",
+    "start": "node server.js",
     "client": "cd ../react && npm start",
     "concurrent": "concurrently \"npm run server && \"npm run client"
   },
